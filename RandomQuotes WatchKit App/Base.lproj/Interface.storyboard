@@ -1,15 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="RandomQuotes_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="0.90000000000000002" alignment="center" verticalAlignment="center" layout="vertical" id="XQV-Li-Lu0">
+                            <items>
+                                <label alignment="left" text="The starting point of all achievement is desire" textAlignment="left" numberOfLines="0" id="Vln-nI-K3K">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <button width="1" alignment="left" title="get the Quote of the Day" id="5ty-9p-ncm">
+                                    <fontDescription key="font" type="system" pointSize="9"/>
+                                    <connections>
+                                        <action selector="randomQuotesTapped" destination="AgC-eL-Hgc" id="pq9-mV-6ts"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <color key="backgroundColor" red="0.43629320068500532" green="0.50935427291685742" blue="0.86078917980194092" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <outlet property="quetesButtonTapped" destination="5ty-9p-ncm" id="Bl6-r1-1S6"/>
+                        <outlet property="quotesLabel" destination="Vln-nI-K3K" id="gKa-QZ-Vad"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="-16" y="-6"/>
         </scene>
     </scenes>
 </document>

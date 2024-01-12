@@ -10,17 +10,33 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    
+    @IBOutlet weak var quotesLabel: WKInterfaceLabel!
+    @IBOutlet weak var quetesButtonTapped: WKInterfaceButton!
+    
+    var networkManager = NetworkManager()
+    private var timer: Timer?
+    
     override func awake(withContext context: Any?) {
-        // Configure interface objects here.
+        
+        self.quotesLabel.setText("")
+        
+    
     }
     
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-    }
+    @IBAction func randomQuotesTapped() {
+        
+        networkManager.onCompletion = { qoute in
+            self.quotesLabel.setText(qoute.qoute)
+            
+        }
+        networkManager.fetchQoute()
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: false , block: { _ in
+            self.quotesLabel.setText("")
+            
+        })
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
     }
-
 }
